@@ -6,7 +6,7 @@ interface Promotion {
 
 class Product implements Promotion {
     String name;
-    int price;
+    BigDecimal price;
     int weight;
     +getDiscountAmount()
 }
