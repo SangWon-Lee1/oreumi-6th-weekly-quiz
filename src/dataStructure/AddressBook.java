@@ -9,4 +9,8 @@ public class AddressBook {
     public AddressBook() {
         this.contacts = new ArrayList<>();
     }
+
+    public void addContact(Contact contact) {
+        this.contacts.add(contact);
+    }
 }
