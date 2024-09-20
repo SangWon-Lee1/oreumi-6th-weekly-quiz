@@ -29,4 +29,21 @@ public class AddressBook {
             }
         }
     }
+
+    public boolean searchContact(String name) {
+        boolean find = false;
+        for (Contact contact : contacts) {
+            if (contact.getName().equals(name)) {
+                if (contact instanceof BusinessContact) {
+                    BusinessContact businessContact = (BusinessContact) contact;
+                    System.out.println("이름: " + contact.getName() + ", 전화번호: " + contact.getPhoneNumber() + ", 회사명: " + businessContact.getCompany());
+                } else {
+                    PersonalContact personalContact = (PersonalContact) contact;
+                    System.out.println("이름: " + contact.getName() + ", 전화번호: " + contact.getPhoneNumber() + ", 관계: " + personalContact.getRelationship());
+                }
+                find = true;
+            }
+        }
+        return find;
+    }
 }
