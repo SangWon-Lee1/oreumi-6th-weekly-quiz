@@ -8,7 +8,7 @@ public class AddressManagement {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         AddressBook addressBook = new AddressBook();
-        Pattern PatternTest = Pattern.compile("\\d{3}-\\d{4}-\\d{4}");
+        Pattern patternTest = Pattern.compile("\\d{3}-\\d{4}-\\d{4}");
         Pattern namePattern = Pattern.compile("[a-zA-Z가-힣]+");
 
         while (true) {
@@ -47,7 +47,7 @@ public class AddressManagement {
                     while (true) {
                         System.out.print("전화번호를 입력하세요: ");
                         phoneNum1 = sc.nextLine();
-                        if (PatternTest.matcher(phoneNum1).matches()) {
+                        if (patternTest.matcher(phoneNum1).matches()) {
                             break;
                         }
                         System.out.println("전화번호를 올바르게 적어주세요");
@@ -85,7 +85,7 @@ public class AddressManagement {
                     while (true) {
                         System.out.print("전화번호를 입력하세요: ");
                         phoneNum2 = sc.nextLine();
-                        if (PatternTest.matcher(phoneNum2).matches()) {
+                        if (patternTest.matcher(phoneNum2).matches()) {
                             break;
                         }
                         System.out.println("전화번호를 올바르게 적어주세요");
