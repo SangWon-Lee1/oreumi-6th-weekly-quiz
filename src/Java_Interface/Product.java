@@ -16,8 +16,8 @@ public class Product implements Promotion{
     @Override
     public BigDecimal getDiscountAmount() {
         BigDecimal discountAmount = switch (name) {
-            case "beauty" -> new BigDecimal("2000");
-            case "grocery" -> new BigDecimal("10000");
+            case "grocery" -> new BigDecimal("2000");
+            case "beauty" -> new BigDecimal("10000");
             default -> BigDecimal.ZERO;
         };
         return discountAmount;
