@@ -4,19 +4,18 @@ import java.sql.*;
 
 public class DBMSQuiz {
     public static void main(String[] args) {
-        String url = "jdbc:mysql://localhost:3306/weekly_quiz";
-        String username = "root";
+        String url = "jdbc:mysql://localhost:3306/study_project";
+        String user = "root";
         String password = "0000";
 
         try (
-             Connection connection = DriverManager.getConnection(url, username, password);
-             PreparedStatement preparedStatement = connection.prepareStatement(
-                     "SELECT name, age, address FROM students WHERE age BETWEEN 30 AND 39");
-             ResultSet resultSet = preparedStatement.executeQuery()
-        ) {
+                Connection connection = DriverManager.getConnection(url, user, password);
+                PreparedStatement preparedStatement = connection.prepareStatement(
+                        "SELECT name, age, address FROM students WHERE age BETWEEN 30 AND 39");
+                ResultSet resultSet = preparedStatement.executeQuery()
+        ){
             ResultSetMetaData metaData = resultSet.getMetaData();
             int columnCount = metaData.getColumnCount();
-
             for (int i = 1; i <= columnCount; i++) {
                 System.out.print(metaData.getColumnName(i) + "\t");
             }
@@ -29,7 +28,8 @@ public class DBMSQuiz {
                 System.out.println(name + "\t" + age + "\t" + address);
             }
         } catch (SQLException e) {
-            System.out.println("SQL 오류 발생");
+            System.out.println("SQL 에러 발생");
+            throw new RuntimeException(e);
         }
     }
 }
